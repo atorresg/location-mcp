@@ -1,0 +1,81 @@
+{
+  "name": "location-mcp",
+  "version": "0.1.0",
+  "mcpName": "io.github.atorresg/location-mcp",
+  "description": "Location MCP Server, giving LLMs geolocation capabilities (IP lookup, reverse geocoding, public IP detection).",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "AI",
+    "LLM",
+    "MCP",
+    "ModelContextProtocol",
+    "Location MCP Server",
+    "Geolocation",
+    "IP Geolocation",
+    "Reverse Geocoding",
+    "OpenStreetMap"
+  ],
+  "author": "atorresg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atorresg/location-mcp.git"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "location-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup && node -e \"require('fs').chmodSync('dist/index.js', '755')\"",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "outDir": "dist",
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "splitting": false,
+    "dts": true,
+    "clean": true,
+    "sourcemap": true
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.56.0",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "zod": "^4.3.6"
+  }
+}
