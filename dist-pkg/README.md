@@ -1,6 +1,5 @@
 # Location MCP Server
 
-[![smithery badge](https://smithery.ai/badge/@atorresg/location-mcp)](https://smithery.ai/server/@atorresg/location-mcp)
 [![GitHub stars](https://img.shields.io/github/stars/atorresg/location-mcp)](https://github.com/atorresg/location-mcp)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/atorresg/location-mcp)](https://github.com/atorresg/location-mcp/issues)
@@ -92,11 +91,13 @@ Request `format: "json"` to receive the underlying structured data:
 
 ## Installation
 
-### Option 1: Via Smithery (recommended)
+### Option 1: Via npx (no install, recommended)
 
 ```bash
-npx -y @smithery/cli install @atorresg/location-mcp --client claude-desktop
+npx -y location-mcp
 ```
+
+This downloads and runs the bundled server on demand — no global install, no `node_modules`.
 
 ### Option 2: Via npm globally
 
@@ -104,10 +105,7 @@ npx -y @smithery/cli install @atorresg/location-mcp --client claude-desktop
 npm install -g location-mcp
 ```
 
-### Option 3: Via npx (no install)
-
-```bash
-npx -y location-mcp
+Then point your MCP client at the absolute path of the `location-mcp` binary (e.g. `which location-mcp`).
 ```
 
 ---
